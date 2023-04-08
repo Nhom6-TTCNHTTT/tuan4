@@ -1,90 +1,144 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-PhucDinhPhucDinh;
+package Bai3_5;
 
 import java.util.Scanner;
 
-/**
- *
- * @author HELLO
- */
-public class SinhVien {
-    private String maSV;
-    private String hoTen;
-    private float diemLyThuyet;
-    private float diemThucHanh;
-    private float diemTrungBinh;
+public class SinhVien implements ChuyenNganh {
+	private String Ho;
+	private String Ten;
+	private DiaChi DiaChiNha = new DiaChi();
+	private DiaChi DiaChiTruong = new DiaChi();
+	private double Diem01;
+	private double Diem02;
+	private double Diem03;
+	private String TenCN;
+	
 
+	
+	@Override
+	public String toString() {
+		return "SinhVien [Ho=" + Ho + ", Ten=" + Ten + ", DiaChiNha=" + DiaChiNha + ", DiaChiTruong=" + DiaChiTruong
+				+ ", Diem01=" + Diem01 + ", Diem02=" + Diem02 + ", Diem03=" + Diem03 + ", TenCN=" + TenCN + "]";
+	}
 
+	public String getHo() {
+		return Ho;
+	}
 
-    public SinhVien(String maSV, String hoTen, float diemLyThuyet, float diemThucHanh) {
-        this.maSV = maSV;
-        this.hoTen = hoTen;
-        this.diemLyThuyet = diemLyThuyet;
-        this.diemThucHanh = diemThucHanh;
-        this.diemTrungBinh = (diemLyThuyet + diemThucHanh) / 2;
-    }
+	public void setHo(String ho) {
+		Ho = ho;
+	}
 
+	public String getTen() {
+		return Ten;
+	}
 
+	public void setTen(String ten) {
+		Ten = ten;
+	}
 
-    public String getMaSV() {
-        return maSV;
-    }
+	public DiaChi getDiaChiNha() {
+		return DiaChiNha;
+	}
 
-    public void setMaSV(String maSV) {
-        this.maSV = maSV;
-    }
+	public void setDiaChiNha(DiaChi diaChiNha) {
+		DiaChiNha = diaChiNha;
+	}
 
-    public String getHoTen() {
-        return hoTen;
-    }
+	public DiaChi getDiaChiTruong() {
+		return DiaChiTruong;
+	}
 
-    public void setHoTen(String hoTen) {
-        this.hoTen = hoTen;
-    }
+	public void setDiaChiTruong(DiaChi diaChiTruong) {
+		DiaChiTruong = diaChiTruong;
+	}
 
-    public float getDiemLyThuyet() {
-        return diemLyThuyet;
-    }
+	public String getTenCN() {
+		return TenCN;
+	}
 
-    public void setDiemLyThuyet(float diemLyThuyet) {
-        this.diemLyThuyet = diemLyThuyet;
-    }
+	public void setTenCN(String tenCN) {
+		TenCN = tenCN;
+	}
 
-    public float getDiemThucHanh() {
-        return diemThucHanh;
-    }
+	public double getDiem01() {
+		return Diem01;
+	}
 
-    public void setDiemThucHanh(float diemThucHanh) {
-        this.diemThucHanh = diemThucHanh;
-    }
+	public void setDiem01(double diem01) {
+		Diem01 = diem01;
+	}
 
-    public float getDiemTrungBinh() {
-        return diemTrungBinh;
-    }
+	public double getDiem02() {
+		return Diem02;
+	}
 
-    public void setDiemTrungBinh(float diemTrungBinh) {
-        this.diemTrungBinh = diemTrungBinh;
-    }
+	public void setDiem02(double diem02) {
+		Diem02 = diem02;
+	}
 
-    public void nhap() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Nhap ma sinh vien: ");
-        maSV = sc.nextLine();
-        System.out.print("Nhap ho ten: ");
-        hoTen = sc.nextLine();
-        System.out.print("Nhap diem ly thuyet: ");
-        diemLyThuyet = sc.nextFloat();
-        System.out.print("Nhap diem thuc hanh: ");
-        diemThucHanh = sc.nextFloat();
-        diemTrungBinh = (diemLyThuyet + diemThucHanh) / 2;
-    }
+	public double getDiem03() {
+		return Diem03;
+	}
 
-    @Override
-    public String toString() {
-        return "Sinh vien ma: " + maSV + ", ho ten: " + hoTen + ", diem ly thuyet: " + diemLyThuyet + ", diem thuc hanh: " + diemThucHanh + ", diem trung binh: " + diemTrungBinh;
+	public void setDiem03(double diem03) {
+		Diem03 = diem03;
+	}
+	
+	public void setCotDiem(Integer LoaiDiem, double diem ) {
+	 	if (LoaiDiem == 1){
+            Diem01 = diem;
+        } else if (LoaiDiem == 2) {
+            Diem02 = diem;
+        } else if (LoaiDiem == 3){
+            Diem03 = diem;
+        }
+	}
+	 public Double getCotDiem(Integer loaiDiem){
+        if (loaiDiem == 1){
+            return Diem01;
+        } else if (loaiDiem == 2){
+            return Diem02;
+        } else if (loaiDiem == 3) {
+            return Diem03;
+        }else 
+        	return -1d;
+
+	}
+	public double DiemTrungBinh() {
+		double DiemTB;
+		return DiemTB = (Diem01 + Diem02 + Diem03)/3;
+	}
+
+	@Override
+	public void setChuyenNganh() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void getChuyenNganh() {
+		// TODO Auto-generated method stub
+		System.out.println(TenCN);
+	}
+	
+	public void Nhap(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Nhập họ: ");
+        Ho = scanner.nextLine();
+        System.out.println("Nhập tên: ");
+        Ten = scanner.nextLine();
+        System.out.println("Nhập địa chỉ nhà: ");
+        DiaChiNha.NhapDiaChi();
+        System.out.println("Nhập địa chỉ trường: ");
+        DiaChiTruong.NhapDiaChi();
+        System.out.println("Nhập điểm 1: ");
+        Diem01 = scanner.nextDouble();
+        System.out.println("Nhập điểm 2: ");
+        Diem02 = scanner.nextDouble();
+        System.out.println("Nhập điểm 3: ");
+        Diem03 = scanner.nextDouble();
+        scanner.nextLine();
+        System.out.println("Nhập Tên chuyên ngành: ");
+        TenCN = scanner.nextLine();
     }
 }
-
